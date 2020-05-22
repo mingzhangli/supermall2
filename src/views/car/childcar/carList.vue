@@ -16,7 +16,7 @@ export default {
   name:'carList',
   components: {
     Scroll,
-    carListItem
+    carListItem,
  
   },
    computed: {
@@ -30,7 +30,7 @@ export default {
 <style scoped>
 
 .content{
-  height: calc(100vh - 93px);
+  height: calc(100vh - 93px - 40px);
   overflow: hidden;
 }
 </style>

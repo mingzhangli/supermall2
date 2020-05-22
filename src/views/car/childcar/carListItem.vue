@@ -1,7 +1,7 @@
 <template>
  <div id="carListItem">
   <div class="checked">
-     <check-button :isChecked="item.Checked" @click.native="checkClick"></check-button>
+     <check-button :is-checked="item.Checked" @click.native="checkClick"></check-button>
   </div>
   <div class="item-img">
     <img :src="item.img" alt="商品图片" />
@@ -14,9 +14,6 @@
         <span class="item-slideCount">×{{item.slideCount}}</span>
     </div>
   </div>
-
-
-  
  </div>
 </template>
 
@@ -31,12 +28,15 @@ export default {
   },
    methods:{
     checkClick() {
-    this.item.Checked= !this.item.Checked;
-    console.log('aaaaaaaaa')
+      this.item.Checked = !this.item.Checked;
     }
   },
   props:{
     item:{
+      type:Object,
+      default() {
+        return {}
+      }
     }
   },
  
@@ -44,7 +44,7 @@ export default {
 }
 </script>
 
-<style>
+<style >
 #carListItem{
   width: 100%;
   display: flex;
