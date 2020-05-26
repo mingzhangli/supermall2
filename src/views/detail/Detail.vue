@@ -12,6 +12,7 @@
     </scroll>
     <back-top class='backtop' @click.native="topClick"  v-show="isShow"></back-top>
     <detail-bottom-bar @addCart="addToCart"></detail-bottom-bar>
+    <toast></toast>
      
     
  </div>
@@ -28,6 +29,7 @@
  import DetailBottomBar from './childcomps/DetailBottomBar'
  import GoodsList from 'components/content/goods/GoodsList'
 
+
  import BackTop from 'components/content/backTop/BackTop'
 
 
@@ -35,6 +37,8 @@
  import Scroll from 'components/common/scroll/Scroll'
  import {debounce} from '../.././common/untils.js'
  import {itemListenerMinxin} from '../.././common/mixin.js'
+
+ import { mapActions } from 'vuex'
 
 export default {
   name:'Detail',
@@ -50,7 +54,7 @@ export default {
     GoodsList,
     Scroll,
     debounce,
-    BackTop
+    BackTop,
   },
    mixins:[itemListenerMinxin],
 
@@ -73,7 +77,7 @@ export default {
           this.comment = data.rate.list[0];
         }
    })
-    getDetailRecommend().then( res => {
+  getDetailRecommend().then( res => {
      this.recommends = res.data.list
      
    })
@@ -118,6 +122,9 @@ updated(){
    }
  },
  methods:{
+   ...mapActions([
+      'toAction'
+   ]),
    addToCart() {
     const product = {}
      product.iid = this.iid,
@@ -126,7 +133,15 @@ updated(){
      product.title = this.goods.title,
      product.img = this.topImages[0],
      product.slideCount = this.slideCount,
-     this.$store.dispatch('toAction',product)
+
+     this.toAction(product).then(res =>{ 
+        this.$toast.show(res, 2000)
+
+     })
+     
+    /*this.$store.dispatch('toAction',product).then( res =>{
+       console.log(res)
+     })*/
  },
    imgRefresh(){
      //使用防抖函数进行详情页图片刷新页面
