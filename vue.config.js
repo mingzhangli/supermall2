@@ -12,3 +12,4 @@ module.exports = {
       .set('network', resolve('src/network'))
   },
 }
+

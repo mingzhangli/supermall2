@@ -1,5 +1,5 @@
 <template>
-  <div id="comment">
+  <div id="comment" v-if="Object.keys(comment).length != 0">
     <div class="comment_title">
     <span class="comment_header">用户评价</span>
     <span class="comment_header_more">更多</span>
@@ -44,6 +44,7 @@ export default {
     }
   },
   filters: {
+    //使用正则表达式转化为日常的时间
     dateShow(value) {
       let date = new Date(value * 1000);
       return formatDate(date, "yyyy-MM-dd");

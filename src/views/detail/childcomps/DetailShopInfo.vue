@@ -51,6 +51,7 @@ export default {
     sellValue() {
       /* parseFloat(this.shop.sells / 10000).toFixed(1) */
       return Math.round((this.shop.sells / 10000) * 10) / 10;
+      
     },
     betterScore(isBetter) {
       if (isBetter) {
@@ -58,7 +59,9 @@ export default {
       } else {
         return "{ backgroundColor: green, color: white}";
       }
+      console.log(item.isBetter)
     }
+    
   }
 };
 </script>

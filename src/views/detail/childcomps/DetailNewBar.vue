@@ -34,6 +34,7 @@ export default {
       this.$emit('itemClickEvent',index)
     },
     backClick(){
+       //点击返回上一次页面
        this.$router.back(-1)
     }
   }

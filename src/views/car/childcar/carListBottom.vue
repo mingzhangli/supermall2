@@ -60,9 +60,11 @@ export default {
 <style scoped>
 .car-list-bottom{
   background: #eee;
-  height: 40px;
   display: flex;
+  line-height: 40px;
+  height: 40px;
   position: relative;
+
 }
 .bottom-button{
 margin-left: 10px;

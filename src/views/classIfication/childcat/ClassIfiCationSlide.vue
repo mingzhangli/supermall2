@@ -38,7 +38,6 @@ export default {
       let res = await getCategory();
       if(res) {
         this.list = res.data.category.list;
-        this.itemClick(0)
         console.log(this.list)
       }
     },

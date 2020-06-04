@@ -20,6 +20,7 @@ export default {
     methods:{
     imageLoad(){
       if(!this.isShow){
+        //使用@load对每个图片加载成功发送一次事件
         this.$emit('swiperItemImageLoad');
         this.isShow=true   
       }

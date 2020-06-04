@@ -1,5 +1,5 @@
 <template>
-  <div id="detail_params">
+  <div id="detail_params" v-if="Object.keys(paramInfo).length != 0">
       <table class="params_rule">
         <tbody>
           <tr :key="index" v-for="(item,index) in paramInfo.sizes[0]" >

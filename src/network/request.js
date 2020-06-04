@@ -9,7 +9,7 @@ export function request (config){
   instance1.interceptors.request.use(config=>{
    // console.log(config);
     return config
-  }),err=>{
+  }),err => {
     console.log(err)
   },
   instance1.interceptors.response.use(config=>{

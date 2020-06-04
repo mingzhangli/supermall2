@@ -32,8 +32,6 @@ export default {
 
 <style>
 #Car{
-  position: relative;
-  z-index: 10;
   background: white;
 }
 .car-nav{

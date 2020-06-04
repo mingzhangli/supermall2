@@ -4,16 +4,14 @@ import store from './store'
 import router from './router'
 import axios from 'axios'
 import toast from 'components/common/toast/index'
-
 import VueLazyLoad from 'vue-lazyload';
-
-
 
 import ElementUI from 'element-ui';
 import 'element-ui/lib/theme-chalk/index.css';
 
 Vue.config.productionTip = false
 
+//注册事件总线
 Vue.prototype.$bus = new Vue()
 //安装element-ui
 Vue.use(ElementUI);

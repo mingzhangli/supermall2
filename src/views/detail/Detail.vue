@@ -59,8 +59,9 @@ export default {
    mixins:[itemListenerMinxin],
 
   created(){
+      //获取当前商品详情页的iid
    this.iid = this.$route.params.iid
-
+      //获取参数iid来请求相应的详情页的数据
    getDetail(this.iid).then(res => {
      this.topImages = res.result.itemInfo.topImages
      const data = res.result
@@ -77,10 +78,11 @@ export default {
           this.comment = data.rate.list[0];
         }
    })
+      //获取推荐数据
   getDetailRecommend().then( res => {
      this.recommends = res.data.list
-     
    })
+     //对详情页图片使用防抖函数来做性能优化
    this.getThemePosY = debounce(()=>{
    this.themePosY=[]
    this.themePosY.push(0)
@@ -98,6 +100,7 @@ updated(){
   
  },
  destroyed() {
+   //利用事件总线从其他页接受一个事件
    this.$bus.$off('itemImageLoad',() => {
      refresh()
    })
@@ -126,6 +129,7 @@ updated(){
       'toAction'
    ]),
    addToCart() {
+     //定义一个对象，当用户点击购物车时把这个对象数据传给vueX的State里
     const product = {}
      product.iid = this.iid,
      product.desc = this.goods.desc,

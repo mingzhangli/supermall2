@@ -33,7 +33,7 @@ export default {
   created() {
     this.getCategory()
 
-    this.getSubcategory('3627')
+    this.getSubcategory('3624')
   },
   methods: {
     indexClick(index) {

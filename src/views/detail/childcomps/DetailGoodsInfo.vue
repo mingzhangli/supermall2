@@ -40,10 +40,7 @@ export default {
   },
   methods: {
     loadImg() {
-     
        this.$emit("loadImgEvent");
-
-  
     }
   }
 };
